@@ -13,7 +13,7 @@ npm i poe-ui-serve
 `poe-ui-serve` takes an optional `path`, then simply mounts the `index.jade` at the path
 inside a barebones app.
 
-If no path is provided, poe-ui-serve defaults to the current working directory
+If no path is provided, `poe-ui-serve` defaults to the current working directory
 
 ```sh
 poe-ui-serve [path]
