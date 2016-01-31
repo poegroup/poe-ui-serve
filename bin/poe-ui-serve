@@ -1,7 +1,8 @@
-#!/bin/zsh
+#!/usr/local/bin/zsh
 
 # TODO rewrite this using node
 
 if [ -z $1 ]; then 1=$(pwd); fi
+1=`realpath $1`
 cd $(dirname $0:A | xargs dirname)
-ESS_PATH=$@ make
+POE_SERVE_PATH=$(realpath $@) make
