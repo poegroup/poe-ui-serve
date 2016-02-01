@@ -16,9 +16,14 @@ var app = module.exports = stack({
 
 app.builder.resolve.modulesDirectories.push(__dirname + '/node_modules');
 
-app.builder.output.path = process.env.POE_BUILD_PATH;
+if (process.env.POE_BUILD_PATH) app.builder.output.path = process.env.POE_BUILD_PATH;
 
 app.builder.addES6({
   test: /.(js)$/,
   include: /ui-kit/
+});
+
+app.builder.addES6({
+  test: /.(js)$/,
+  include: /poe-ui-serve\/src/
 });

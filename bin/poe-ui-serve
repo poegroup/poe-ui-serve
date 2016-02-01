@@ -24,7 +24,7 @@ var resolve = require('path').resolve;
 var app = require.resolve('../app.js');
 
 if (program.build === true) program.build = './build';
-process.env.POE_BUILD_PATH = program.build && resolve(process.cwd(), program.build);
+process.env.POE_BUILD_PATH = program.build ? resolve(process.cwd(), program.build) : '';
 process.env.POE_SERVE_PATH = resolve(process.cwd(), (program.args[0] || ''));
 
 function run() {
