@@ -2,11 +2,14 @@
 
 var program = require('commander');
 
+if (!process.env.NODE_ENV) process.env.NODE_ENV = 'development';
+
 // usage
 
 program
   .version(require('../package').version)
   .usage('[path]')
+  .option('-b, --build [output]', 'Build the app into a folder')
   .parse(process.argv);
 
 /**
@@ -14,17 +17,33 @@ program
  */
 
 var spawn = require('win-fork');
-var path = require('path');
-var join = path.join;
-var resolve = path.resolve;
+var dirname = require('path').dirname;
+var join = require('path').join;
+var resolve = require('path').resolve;
 
-var servePath = process.env.POE_SERVE_PATH = join(process.cwd(), (program.args[0] || ''));
+var app = require.resolve('../app.js');
 
-var makePath = resolve(__dirname + '/..');
+if (program.build === true) program.build = './build';
+process.env.POE_BUILD_PATH = program.build && resolve(process.cwd(), program.build);
+process.env.POE_SERVE_PATH = resolve(process.cwd(), (program.args[0] || ''));
 
-process.chdir(makePath);
+function run() {
+  var startup = resolve(dirname(require.resolve('startup/package.json')), './bin/startup-start');
+  return spawn(startup, ['-a', app], { stdio: 'inherit', customFds: [0, 1, 2] });
+}
 
-var proc = spawn('make', [], { stdio: 'inherit', customFds: [0, 1, 2] });
+function build() {
+  var args = [
+    require.resolve('poe-ui/bin/build'),
+    app,
+    process.cwd() + '/build.json',
+    require.resolve('webpack')
+  ];
+
+  return spawn('node', args, { stdio: 'inherit', customFds: [0, 1, 2] });
+}
+
+var proc = program.build ? build() : run();
 
 proc.on('close', function(code){
   process.exit(code);

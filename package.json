@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mndvns/poe-ui-serve"
+    "url": "https://github.com/poegroup/poe-ui-serve"
   },
   "engines": {
     "node": "5.x.x",
@@ -19,10 +19,12 @@
   "dependencies": {
     "ast2template": "^0.3.0",
     "ast2template-loader": "^0.2.0",
+    "autoprefixer": "^6.3.1",
     "autoprefixer-loader": "^2.0.0",
     "babel-core": "^5.2.16",
     "babel-loader": "camshaft/babel-loader",
     "babel-runtime": "5.2.16",
+    "commander": "^2.9.0",
     "css-loader": "^0.9.0",
     "ess-compiler": "^0.2.1",
     "ess-loader": "^0.4.0",
@@ -38,6 +40,7 @@
     "hyperagent": "^0.2.9",
     "jade": "^1.9.2",
     "jade-html-loader": "^0.0.2",
+    "jade2ast": "^0.1.0",
     "jade2ast-loader": "^0.1.0",
     "json-loader": "^0.5.1",
     "lang-js-translate": "^1.0.2",
@@ -50,6 +53,7 @@
     "onus-translate": "^0.2.0",
     "poe-ui": "^1.0.4",
     "poe-ui-builder": "^1.0.0",
+    "postcss": "^5.0.14",
     "raf": "^2.0.4",
     "react": "^0.12.2",
     "react-component-loader": "^0.1.0",
