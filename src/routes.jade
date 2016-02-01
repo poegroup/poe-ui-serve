@@ -1,5 +1,5 @@
 import {Route, DefaultRoute} from 'react-router'
 
-var Index = require(process.env.POE_SERVE_PATH);
+var Index = require(process.env.POE_SERVE_PATH)['default'];
 
 Route(name='root' handler=Index path=props.base)
