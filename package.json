@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mndvns/test-runner"
+    "url": "https://github.com/mndvns/poe-ui-serve"
   },
   "engines": {
     "node": "5.x.x",
