@@ -4,9 +4,7 @@
   "description": "an on-the-spot poe-ui app",
   "author": "Michael Vanasse <mail@mndvns.com>",
   "main": "app.js",
-  "bin": {
-    "poe-ui-serve": "./bin/poe-ui-serve"
-  },
+  "bin": "bin/poe-ui-serve",
   "scripts": {
     "start": "./node_modules/.bin/startup start"
   },
