@@ -1,6 +1,6 @@
 {
   "name": "poe-ui-serve",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "an on-the-spot poe-ui app",
   "author": "Michael Vanasse <mail@mndvns.com>",
   "main": "app.js",
