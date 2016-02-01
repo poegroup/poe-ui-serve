@@ -40,6 +40,8 @@ function build() {
     require.resolve('webpack')
   ];
 
+  if (!process.env.MANIFEST) process.env.MANIFEST = resolve(dirname(process.env.POE_BUILD_PATH), 'manifest.json');
+
   return spawn('node', args, { stdio: 'inherit', customFds: [0, 1, 2] });
 }
 
