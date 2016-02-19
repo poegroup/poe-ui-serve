@@ -21,6 +21,8 @@ if (process.env.NODE_ENV == 'production') {
 
 var app = module.exports = stack(opts);
 
+app.env('API_URL', process.env.API_URL);
+
 if (process.env.POE_BUILD_PATH) app.builder.output.path = process.env.POE_BUILD_PATH;
 app.builder.resolve.modulesDirectories.push(__dirname + '/node_modules');
 
